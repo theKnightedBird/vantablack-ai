@@ -11,5 +11,5 @@ ez::Drive chassis(
     wheel_diam,
     motor_rpm);
 
-ez::tracking_wheel horiz_tracker(8, 2.75, 4.0);
-ez::tracking_wheel vert_tracker(9, 2.75, 4.0);
+ez::tracking_wheel horiz_tracker(horiz_tracking_port, horiz_wheel_diam, horiz_dist_to_cent);
+ez::tracking_wheel vert_tracker(vert_tracking_port, vert_wheel_diam, vert_dist_to_cent);

@@ -1,14 +1,25 @@
 #include "main.h"
 #pragma once
 
+/////
 // Constants file, all constants go here
+/////
 
+///
 // Drive constants
+///
 const std::vector<int> left_motor_ports = {1, -2, 3};    // TODO: Find
 const std::vector<int> right_motors_ports = {4, -5, 6};  // TODO: Find
 const int imu_port = 7;                                  // TODO: Find
 const double wheel_diam = 4.0;                           // TODO: Find
 const double motor_rpm = 343;                            // TODO: Find
+
+const double vert_tracking_port = 8;    // TODO: Find
+const double horiz_tracking_port = 9;   // TODO: Find
+const double vert_wheel_diam = 2.75;    // TODO: Find
+const double horiz_wheel_diam = 2.75;   // TODO: Find
+const double vert_dist_to_cent = 0.4;   // TODO: Find
+const double horiz_dist_to_cent = 0.4;  // TODO: Find
 
 const double drive_kP = 20.0;        // TODO: Tune
 const double drive_kI = 0.0;         // TODO: Tune
@@ -42,3 +53,9 @@ const double turn_bias = 0.9;
 const okapi::QLength pp_lookahead = 7_in;
 const okapi::QLength pp_target_from_lookahead_max = 16_in;
 const double pp_aggresiveness = 0.65;
+
+///
+// Vision Constants
+///
+
+const int vision_port = 10;
