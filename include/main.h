@@ -1,3 +1,4 @@
+#pragma once
 /**
  * \file main.h
  *
@@ -44,6 +45,7 @@
 #include "EZ-Template/api.hpp"
 
 // More includes here...
+#include "autons.hpp"
 #include "constants.h"
 #include "subsystems.hpp"
 #include "util.hpp"

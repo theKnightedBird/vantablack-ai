@@ -23,6 +23,7 @@ void configure_drive() {
   chassis.pid_drive_chain_constant_set(drive_chain_dist);
 
   // Slew constants
+  chassis.slew_drive_set(true);
   chassis.slew_turn_constants_set(slew_turn_windup, slew_windup_start);
   chassis.slew_drive_constants_set(slew_drive_windup, slew_windup_start);
   chassis.slew_swing_constants_set(slew_turn_windup, slew_windup_start);

@@ -6,6 +6,17 @@
  * All other competition modes are blocked by initialize; it is recommended
  * to keep execution time for this mode under a few seconds.
  */
+
+ez::Drive chassis(
+    left_motor_ports,
+    right_motors_ports,
+    imu_port,
+    wheel_diam,
+    motor_rpm);
+
+ez::tracking_wheel horiz_tracker(horiz_tracking_port, horiz_wheel_diam, horiz_dist_to_cent);
+ez::tracking_wheel vert_tracker(vert_tracking_port, vert_wheel_diam, vert_dist_to_cent);
+
 void initialize() {
   pros::delay(500);  // Stop the user from doing anything while legacy ports configure
 
@@ -16,12 +27,14 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
+      {"Go Forwards", go_forwards},
       {"Measure Offsets\n\nThis will turn the robot a bunch of times and calculate your offsets for your tracking wheels.", measure_offsets},
   });
 
   // Initialize chassis and auton selector
   chassis.initialize();
   ez::as::initialize();
+
   master.rumble(chassis.drive_imu_calibrated() ? "." : "---");
 }
 
@@ -192,12 +205,11 @@ void opcontrol() {
     // Gives you some extras to make EZ-Template ezier
     ez_template_extras();
 
-    chassis.opcontrol_tank();  // Tank control
-    // chassis.opcontrol_arcade_standard(ez::SPLIT);   // Standard split arcade
-    // chassis.opcontrol_arcade_standard(ez::SINGLE);  // Standard single arcade
-    // chassis.opcontrol_arcade_flipped(ez::SPLIT);    // Flipped split arcade
-    // chassis.opcontrol_arcade_flipped(ez::SINGLE);   // Flipped single arcade
-
+    // chassis.opcontrol_tank();  // Tank control
+    chassis.opcontrol_arcade_standard(ez::SPLIT);  // Standard split arcade
+    intake();
+    doClamp();
+    moveArm();
     // . . .
     // Put more user control code here!
     // . . .

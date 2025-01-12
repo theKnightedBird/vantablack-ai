@@ -1,4 +1,3 @@
-#include "main.h"
 #pragma once
 
 /////
@@ -8,11 +7,11 @@
 ///
 // Drive constants
 ///
-const std::vector<int> left_motor_ports = {1, -2, 3};    // TODO: Find
-const std::vector<int> right_motors_ports = {4, -5, 6};  // TODO: Find
-const int imu_port = 7;                                  // TODO: Find
-const double wheel_diam = 4.0;                           // TODO: Find
-const double motor_rpm = 343;                            // TODO: Find
+const std::vector<int> left_motor_ports = {-7, -5, 9, -10};  // TODO: Find
+const std::vector<int> right_motors_ports = {-1, 2, 4, 6};   // TODO: Find
+const int imu_port = 15;                                     // TODO: Find
+const double wheel_diam = 4.0;                               // TODO: Find
+const double motor_rpm = 343;                                // TODO: Find
 
 const double vert_tracking_port = 8;    // TODO: Find
 const double horiz_tracking_port = 9;   // TODO: Find
