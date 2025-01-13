@@ -2,6 +2,7 @@
 
 #include "EZ-Template/api.hpp"
 #include "api.h"
+#include "subsystems/ladygrey.hpp"
 
 // Your motors, sensors, etc. should go here.  Below are examples
 extern ez::Drive chassis;
@@ -13,6 +14,7 @@ void intake();
 
 extern pros::ADIDigitalOut clamper;
 void doClamp();
+void update_clamp();
 
 extern pros::Motor ladyGrey;
 void moveArm();
