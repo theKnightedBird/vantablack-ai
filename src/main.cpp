@@ -208,7 +208,7 @@ void opcontrol() {
     // chassis.opcontrol_tank();  // Tank control
     chassis.opcontrol_arcade_standard(ez::SPLIT);  // Standard split arcade
     intake();
-    doClamp();
+    update_clamp();
     moveArm();
     // . . .
     // Put more user control code here!
