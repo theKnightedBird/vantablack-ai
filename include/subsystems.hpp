@@ -16,5 +16,5 @@ extern pros::ADIDigitalOut clamper;
 void doClamp();
 void update_clamp();
 
-extern pros::Motor ladyGrey;
+extern lady_grey_mech ladygrey;
 void moveArm();

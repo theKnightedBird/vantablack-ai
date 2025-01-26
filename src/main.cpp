@@ -17,6 +17,8 @@ ez::Drive chassis(
 ez::tracking_wheel horiz_tracker(horiz_tracking_port, horiz_wheel_diam, horiz_dist_to_cent);
 ez::tracking_wheel vert_tracker(vert_tracking_port, vert_wheel_diam, vert_dist_to_cent);
 
+lady_grey_mech ladygrey;
+
 void initialize() {
   pros::delay(500);  // Stop the user from doing anything while legacy ports configure
 
@@ -209,10 +211,18 @@ void opcontrol() {
     chassis.opcontrol_arcade_standard(ez::SPLIT);  // Standard split arcade
     intake();
     update_clamp();
-    moveArm();
+    if (master.get_digital(DIGITAL_LEFT)) {
+      ladygrey.set_target(GRABBING);
+    } else if (master.get_digital(DIGITAL_RIGHT)) {
+      ladygrey.set_target(SCORING);
+    } else if (master.get_digital(DIGITAL_UP)) {
+      ladygrey.set_target(IDLE);
+    }
+
     // . . .
     // Put more user control code here!
     // . . .
+    ladygrey.update();
 
     pros::delay(ez::util::DELAY_TIME);  // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }

@@ -3,20 +3,15 @@
 #include "EZ-Template/api.hpp"
 #include "api.h"
 
-enum ladyGreyState {
+enum lady_grey_state {
   IDLE,
   GRABBING,
   SCORING
 };
 
-class ladyGreyMech {
+class lady_grey_mech {
  public:
-  ladyGreyMech();
+  lady_grey_mech();
   void update();
-  void set_target();
-
- private:
-  pros::Motor motor;
-  ez::PID controller;
-  ladyGreyState state;
+  void set_target(lady_grey_state state);
 };

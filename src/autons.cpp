@@ -5,7 +5,7 @@ void go_forwards() {
   chassis.pid_wait();
 }
 
-void score_one() {
+void score_four() {
   chassis.pid_turn_set(180_deg, 110);
   chassis.pid_wait();
   chassis.pid_drive_set(-34.64_in, 110);
